@@ -1,0 +1,17 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Entornos
+.env
+.DS_Store
+
+# IDEs y editores
+.vscode/
+.idea/
+*.swp
+
+# Builds
+dist/
+build/
