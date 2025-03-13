@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
+const API_URL = "https://seguimientos.onrender.com/api/seguimientos"; // 🔹 Nueva URL del backend
+
 function EditarSeguimiento() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -18,7 +20,7 @@ function EditarSeguimiento() {
   });
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/seguimientos/${id}`)
+    fetch(`${API_URL}/${id}`)
       .then((response) => response.json())
       .then((data) => {
         if (data.fecha_limite) {
@@ -39,7 +41,7 @@ function EditarSeguimiento() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:5000/api/seguimientos/${id}`, {
+      const response = await fetch(`${API_URL}/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
@@ -143,6 +145,7 @@ function EditarSeguimiento() {
 }
 
 export default EditarSeguimiento;
+
 
 
 

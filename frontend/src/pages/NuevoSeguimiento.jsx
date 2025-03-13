@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+const API_URL = "https://seguimientos.onrender.com/api/seguimientos"; // 🔹 Nueva URL del backend
+
 function NuevoSeguimiento() {
   const [form, setForm] = useState({
     cliente: "Desconocido",
@@ -27,7 +29,7 @@ function NuevoSeguimiento() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/api/seguimientos", {
+      const response = await fetch(API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
@@ -133,6 +135,3 @@ function NuevoSeguimiento() {
 }
 
 export default NuevoSeguimiento;
-
-
-

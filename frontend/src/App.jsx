@@ -4,12 +4,14 @@ import SeguimientosList from "./pages/SeguimientosList";
 import NuevoSeguimiento from "./pages/NuevoSeguimiento";
 import EditarSeguimiento from "./pages/EditarSeguimiento";
 
+const API_URL = "https://seguimientos.onrender.com/api/seguimientos"; // 🔹 Nueva URL del backend
+
 function App() {
   const [seguimientos, setSeguimientos] = useState([]);
 
   const fetchSeguimientos = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/seguimientos");
+      const response = await fetch(API_URL);
       const data = await response.json();
       setSeguimientos(data); // ✅ Forzar actualización de la lista
     } catch (error) {
@@ -42,6 +44,7 @@ function App() {
 }
 
 export default App;
+
 
 
 

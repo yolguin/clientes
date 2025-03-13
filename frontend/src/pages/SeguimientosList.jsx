@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 
+const API_URL = "https://seguimientos.onrender.com/api/seguimientos"; // 🔹 Nueva URL del backend
+
 function SeguimientosList({ seguimientos, actualizarLista }) {
   const handleDelete = async (id) => {
     if (window.confirm("¿Seguro que quieres eliminar este seguimiento?")) {
       try {
-        const response = await fetch(`http://localhost:5000/api/seguimientos/${id}`, {
+        const response = await fetch(`${API_URL}/${id}`, {
           method: "DELETE",
         });
 
@@ -54,7 +56,7 @@ function SeguimientosList({ seguimientos, actualizarLista }) {
                   <span className={`badge text-white 
                     ${seguimiento.semaforo === "atractivo" ? "bg-danger" :
                       seguimiento.semaforo === "medianamente atractivo" ? "bg-warning text-dark" :
-                      "bg-secondary"}`}>  {/* bg-secondary es café oscuro, si prefieres morado usa bg-primary */}
+                      "bg-primary"}`}>  
                     {seguimiento.semaforo}
                   </span>
                 </td>
@@ -85,8 +87,6 @@ function SeguimientosList({ seguimientos, actualizarLista }) {
 }
 
 export default SeguimientosList;
-
-
 
 
 
