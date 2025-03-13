@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-const API_URL = "https://seguimientos.onrender.com/api/seguimientos"; // 🔹 Nueva URL del backend
+const API_URL = "https://seguimientos.onrender.com/api/seguimientos";
 
 function EditarSeguimiento() {
   const { id } = useParams();
@@ -16,7 +16,7 @@ function EditarSeguimiento() {
     fecha_limite: "",
     responsable: "Nadie",
     semaforo: "poco atractivo",
-    tresa: "No aplica", // ✅ Agregado "Tresa"
+    tresa: "No aplica",
   });
 
   useEffect(() => {
@@ -49,7 +49,7 @@ function EditarSeguimiento() {
 
       if (response.ok) {
         alert("Seguimiento actualizado correctamente");
-        navigate("/");
+        navigate(0); // 🔹 Forzar recarga de la página para reflejar cambios
       } else {
         alert("Error al actualizar el seguimiento");
       }
@@ -116,7 +116,7 @@ function EditarSeguimiento() {
               </select>
             </div>
 
-            {/* ✅ Agregado "Tresa" en el formulario */}
+            {/* 🔹 Corregido el texto de "Tresa" */}
             <div className="mb-3">
               <label className="form-label">Tresa:</label>
               <select name="tresa" className="form-select" value={form.tresa} onChange={handleChange}>
