@@ -49,7 +49,7 @@ function EditarSeguimiento() {
 
       if (response.ok) {
         alert("Seguimiento actualizado correctamente");
-        navigate(0); // 🔹 Forzar recarga de la página para reflejar cambios
+        navigate("/", { replace: true }); // 🔹 Forzar recarga de la página para reflejar cambios
       } else {
         alert("Error al actualizar el seguimiento");
       }

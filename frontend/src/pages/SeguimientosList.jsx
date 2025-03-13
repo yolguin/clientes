@@ -68,7 +68,7 @@ function SeguimientosList({ seguimientos, actualizarLista }) {
                     {seguimiento.estado}
                   </span>
                 </td>
-                <td>{seguimiento.tresa}</td>
+                <td>{seguimiento.tresa === "Información del día" ? "Información al día" : seguimiento.tresa}</td>
                 <td>
                   <Link to={`/editar/${seguimiento.id}`} className="btn btn-primary btn-sm me-2">
                     ✏️ Editar
@@ -87,6 +87,7 @@ function SeguimientosList({ seguimientos, actualizarLista }) {
 }
 
 export default SeguimientosList;
+
 
 
 
